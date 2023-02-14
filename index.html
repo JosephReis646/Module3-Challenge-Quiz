@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Coding Quiz</h1>
+      <div id="intro">
+        <p>
+          This quiz tests your knowledge of JavaScript fundamentals. You have 60
+          seconds to answer as many questions as you can. Each incorrect answer
+          subtracts 10 seconds from your time. Good luck!
+        </p>
+        <button id="start-button">Start Quiz</button>
+      </div>
+      <div id="quiz" class="hide">
+        <div id="question-container"></div>
+        <div id="timer-container">
+          Time: <span id="time-left"></span>
+        </div>
+      </div>
+      <div id="score" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="score-value"></span>.</p>
+        <form>
+          <label for="initials">Enter initials:</label>
+          <input type="text" id="initials" name="initials" />
+          <button id="submit-score">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
