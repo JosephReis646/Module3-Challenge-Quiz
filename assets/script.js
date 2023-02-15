@@ -100,6 +100,11 @@ function startTimer() {
 }
 
 // Function to end the quiz
+function endQuiz() {
+  clearInterval(timerInterval);
+  quizContainer.style.display = "none";
+  gameOverContainer.style.display = "block";
+}
 
 // Function to format the time as mm:ss
 
