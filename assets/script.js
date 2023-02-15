@@ -114,10 +114,30 @@ function formatTime(time) {
 }
 
 // Function to handle the submission of the score
+function handleScoreSubmission(event) {
+  event.preventDefault();
 
 // Get the initials and save the score
+const initials = initialsInput.value.trim().toUpperCase();
+if (initials.length > 0) {
+  const highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+  highScores.push({ initials, score });
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(10);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+// Display the high scores
+displayHighScores();
 
 // Reset the quiz
+currentQuestionIndex = 0;
+  score = 0;
+  time = 60;
+  scoreElement.textContent = score;
+  timeElement.textContent = formatTime(time);
+  gameOverContainer.style.display = "none";
+  document.getElementById("start-container").style.display = "block";
+}
 
 // Function to display the high scores
 
