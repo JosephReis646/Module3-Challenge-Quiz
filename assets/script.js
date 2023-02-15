@@ -140,6 +140,17 @@ currentQuestionIndex = 0;
 }
 
 // Function to display the high scores
+function displayHighScores() {
+  const highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+  highScoresList.innerHTML = "";
+  for (let i = 0; i < highScores.length; i++) {
+    const highScore = highScores[i];
+    const listItem = document.createElement("li");
+    listItem.textContent = highScore.initials + " - " + highScore.score;
+    highScoresList.appendChild(listItem);
+  }
+  highScoresContainer.style.display = "block";
+}
 
 // Add event listeners
 startButton.addEventListener("click", startQuiz);
