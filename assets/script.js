@@ -87,6 +87,17 @@ function displayQuestion() {
   }
 }
 // Function to start the timer
+function startTimer() {
+  timeElement.textContent = formatTime(time);
+  timerInterval = setInterval(function() {
+    time--;
+    if (time < 0) {
+      time = 0;
+      endQuiz();
+    }
+    timeElement.textContent = formatTime(time);
+  }, 1000);
+}
 
 // Function to end the quiz
 
