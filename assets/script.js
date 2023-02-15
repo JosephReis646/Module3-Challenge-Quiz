@@ -40,24 +40,52 @@ let time = 60;
 let timerInterval;
 
 // Function to start the quiz
+function startQuiz() {
+  // Hide the start container and show the quiz container
+  quizContainer.style.display = "block";
+  document.getElementById("start-container").style.display = "none";
 
-// Hide the start container and show the quiz container
+  // Start the timer
+  startTimer();
 
-// Start the timer
-
-
-// Display the first question
-
+  // Display the first question
+  displayQuestion();
+}
 // Function to display a question
+function displayQuestion() {
+  // Get the current question object
+  const currentQuestion = quizQuestions[currentQuestionIndex];
 
-// Get the current question object
-
-// Display the question and choices
-
-// Check if the answer is correct
-
-// Go to the next question or end the quiz
-
+  // Display the question and choices
+  questionElement.textContent = currentQuestion.question;
+  choicesElement.innerHTML = "";
+  for (let i = 0; i < currentQuestion.choices.length; i++) {
+    const choice = currentQuestion.choices[i];
+    const button = document.createElement("button");
+    button.textContent = choice;
+    button.addEventListener("click", function() {
+      // Check if the answer is correct
+      if (choice === currentQuestion.answer) {
+        score++;
+        scoreElement.textContent = score;
+      } else {
+        time -= 10;
+        if (time < 0) {
+          time = 0;
+        }
+        timeElement.textContent = formatTime(time);
+      }
+      // Go to the next question or end the quiz
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizQuestions.length && time > 0) {
+        displayQuestion();
+      } else {
+        endQuiz();
+      }
+    });
+    choicesElement.appendChild(button);
+  }
+}
 // Function to start the timer
 
 // Function to end the quiz
@@ -66,13 +94,13 @@ let timerInterval;
 
 // Function to handle the submission of the score
 
-  // Get the initials and save the score
+// Get the initials and save the score
 
-    // Reset the quiz
+// Reset the quiz
 
-    // Function to display the high scores
+// Function to display the high scores
 
-    // Add event listeners
+// Add event listeners
 startButton.addEventListener("click", startQuiz);
 submitButton.addEventListener("click", handleScoreSubmission);
 
