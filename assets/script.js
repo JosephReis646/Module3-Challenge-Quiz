@@ -17,3 +17,63 @@ const quizQuestions = [
   }
 ];
 
+// Define other constants and variables
+const quizContainer = document.getElementById("quiz-container");
+const quiz = document.getElementById("quiz");
+const questionElement = document.getElementById("question");
+const choicesElement = document.getElementById("choices");
+const scoreElement = document.getElementById("score");
+const timeElement = document.getElementById("time");
+const startButton = document.getElementById("start");
+const gameOverContainer = document.getElementById("game-over-container");
+const initialsInput = document.getElementById("initials");
+const submitButton = document.getElementById("submit");
+const highScoresList = document.createElement("ul");
+highScoresList.setAttribute("id", "high-scores-list");
+const highScoresContainer = document.createElement("div");
+highScoresContainer.setAttribute("id", "high-scores-container");
+highScoresContainer.appendChild(highScoresList);
+quizContainer.insertAdjacentElement("afterend", highScoresContainer);
+let currentQuestionIndex = 0;
+let score = 0;
+let time = 60;
+let timerInterval;
+
+// Function to start the quiz
+
+// Hide the start container and show the quiz container
+
+// Start the timer
+
+
+// Display the first question
+
+// Function to display a question
+
+// Get the current question object
+
+// Display the question and choices
+
+// Check if the answer is correct
+
+// Go to the next question or end the quiz
+
+// Function to start the timer
+
+// Function to end the quiz
+
+// Function to format the time as mm:ss
+
+// Function to handle the submission of the score
+
+  // Get the initials and save the score
+
+    // Reset the quiz
+
+    // Function to display the high scores
+
+    // Add event listeners
+startButton.addEventListener("click", startQuiz);
+submitButton.addEventListener("click", handleScoreSubmission);
+
+
